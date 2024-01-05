@@ -1,5 +1,6 @@
 package com.digital.library.project.librarymanagesys2dec.models;
 
+import com.digital.library.project.librarymanagesys2dec.security.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,6 +32,13 @@ public class Student {
     @OneToMany(mappedBy = "student")
     @JsonIgnoreProperties(value = "student")
     private List<Transaction> transactions;
+    @OneToOne
+    @JsonIgnoreProperties(value="student")
+    @JoinColumn
+    private User user;
+
+    @Column(unique = true,nullable = false)
+    private String userName;
     @CreationTimestamp
     private Date createdOn;
     @UpdateTimestamp

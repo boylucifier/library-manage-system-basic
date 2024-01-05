@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuthorRepos extends JpaRepository<Author,Integer> {
-    @Query(value="Select * from Author where email= :email",nativeQuery = true)
-    Author getAuthorByEmail(String email);
+    //@Query(value="Select * from Author where email= :email",nativeQuery = true) - native query
+    //@Query(value="Select * from Author a where a.email= :email") - jpql way
+    Author getAuthorByEmail(String email); // using hibernate
 }

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudentRepos extends JpaRepository<Student,Integer> {
+
+    Student getStudentByUserName(String userName);
 }
